@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        #score {
+            width: 180px;
+            height: 50px;
+            line-height: 150%;
+            font-size: 2em;
+            position: absolute;
+            top: 30px;
+            left: 35%;
+        }
+
+        .creat {
+            float: left;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score">關卡：1</div>
+    <div id="box"></div>
+
+    <script>
+        //關卡值
+        var n = 1;
+        //定義建構函式物件，傳入一個引數（開始時的佈局3x3）
+        var Create = new creat(3);
+        //呼叫建構函式裡面的函式屬性
+        Create.go();
+        //定義建構函式creat
+        function creat(event) {
+            var obox = document.getElementById("box");
+            //設定className
+            this.className = "creat";
+            //事先建立出一個屬性_creat用於指向一個物件
+            this._creat = null;
+            
+            //建立顏色塊的方法函式
+            //隨機數取一個值範圍是（1~254）防止白色塊出現
+            //定義rgb顏色屬性
+            this.go = function () {
+                var colorNum1 = Math.floor(Math.random() * 253);
+                var colorNum2 = Math.floor(Math.random() * 253);
+                var colorNum3 = Math.floor(Math.random() * 253);
+                this.color = rgb[colorNum1, colorNum2 , colorNum3];
+
+                //用於改變其中一個顏色快的顏色(這裡可以自定義改變透明度)
+                this.diffOpacity = 0.7;
+
+                //建立迴圈迴圈event*2次，每當點選顏色塊後event變化
+                for (var i = 0; i < event * event; i) {
+
+                    //動態建立一個div賦給this._creat屬性
+                    this._creat = document.createElement("div");
+                    //設定div的寬，高，顏色和className
+                    this._creat.style.width = Math.floor(600 / event) + px;
+                    this._creat.style.height = Math.floor(600 / event) + px;
+                    this._creat.style.backgroundColor = this.color;
+                    //在樣式中給div左浮動
+                    this._creat.className = this.className;
+                    //作為孩子新增到obox中
+                    obox.appendChild(this._creat);
+
+                }
+                //獲取一下建立好的div
+                var odiv = document.getElementsByClassName("creat");
+                //隨機取到其中一個改變其透明度值
+                var numRandom = parseInt(Math.random() * odiv.length);
+
+                odiv[numRandom].style.opacity = this.diffOpacity;
+                odiv[numRandom].onclick = function () {
+                    /*給取到的div繫結事件，當點選時先清空obox中元素即上一關卡的div
+                    *獲取score改變n的值
+                    *改變event的值，可以自定義難度
+                    *再呼叫一下呼叫建構函式裡面的go函式屬性,建立一組新的元素
+                    */
+                    var oScore = document.getElementById("score");
+                    n;
+                    oScore.innerHTML = '關卡：' + n;
+                    obox.innerHTML = "";
+                    event;
+                    Create.go();
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

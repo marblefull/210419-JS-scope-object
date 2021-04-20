@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .card-group {
+            width: 100%;
+            padding: 20px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+
+        }
+
+        .card {
+            width: 400px;
+            height: 550px;
+            background-color: rgb(223, 223, 223);
+            margin: 0px 0px 30px 0px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 75%;
+            margin-bottom: 15px;
+
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .contant {
+            width: 100%;
+            font-weight: bolder;
+            padding: 4px 0;
+        }
+
+        p{
+            margin: 10px 5px;
+        font-weight: bolder;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="card-group"></div>
+
+
+    <script>
+        var drink_store = [
+            {
+                img: "https://f.ecimg.tw/items/DBAB12A900813GP/000001_1556183421.jpg",
+                name: "可口可樂",
+                composition: "碳酸水、白糖、色素(150d)、酸度調節劑(338)、咖啡因及其他調味劑",
+                price: "NT.33",
+            },
+            {
+                img: "https://d.ecimg.tw/items/DBAB12A900813GQ/000001_1562066175.jpg",
+                name: "雪碧",
+                composition: "	碳酸水、白糖、酸度調節劑 (330、331)、調味劑、防腐劑 (211)、甜味劑",
+                price: "NT.33",
+            },
+            {
+                img: "https://b.ecimg.tw/items/DBAB12A41985786/000001_1478112490.jpg",
+                name: "通寧汽水",
+                composition: "	碳酸水、白糖、酸度調節劑(330)、調味劑、防腐劑(211)、奎寧",
+                price: "NT.23",
+            },
+            {
+                img: "https://c.ecimg.tw/items/DBAB12A41986031/000001_1528080033.jpg",
+                name: "蘇打汽水",
+                composition: "		碳酸水、碳酸氫納",
+                price: "NT.23",
+            }
+        ]
+
+        // for迴圈寫法
+        var card_group = document.querySelector('.card-group')
+        // console.log(drink_store)
+
+
+        for (let index = 0; index < drink_store.length; index++) {
+            const product = drink_store[index];
+            // console.log(product.img);
+            // console.log(product.name);
+            // console.log(product.composition);
+            // console.log(product.price);
+
+            // 最後才把所選到的資訊丟出來，故html裡面沒有東西
+            card_group.innerHTML += `
+            <div class="card">
+             <div class="photo">
+                 <img src="${product.img}" alt="">
+                 </div >
+                <div class="content">
+                    <p>品名:${product.name}</p>
+                    <P>成份:${product.composition}</P>
+                    <P>售價:${product.price}</P>
+                </div>
+             </div > `
+        }
+
+
+
+        // foreach = array.forEach(function(element,index){
+        // console.log(element +"你選到第" +index+ "個")
+        // });
+
+        // array.forEach(element => {
+        //     console.log(element);
+        // });
+
+
+    </script>
+
+</body>
+
+</html>

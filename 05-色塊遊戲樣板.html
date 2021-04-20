@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .canvas {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(128, 128, 128, 0.6);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .game-panel {
+            width: 600px;
+            height: 600px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 50%;
+            height: 50%;
+            border: 2px solid white;
+            background-color: wheat;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="game-panel"></div>
+    </div>
+
+    <script>
+
+
+        function newGame() {
+            // 產生方塊
+            // 調整方塊數量大小
+            // 產生一個隨機顏色，賦予方塊
+
+
+            // 隨機產生正解方塊
+
+
+            // 正解方塊透明度調整
+
+
+            // 幫正解方塊加上onclick事件
+            // 當玩家按到這個方塊(正解)的時候，開啟下一關
+            // 如果level = 10 的時候顯示過關，並重置遊戲
+        }
+
+
+        var GameLevel = [
+            {
+                Level: 'L1',
+                Quantity: '1*1',
+                Color: ''
+            }, {
+                Level: 'L2',
+                Quantity: '2*2',
+                Color:
+            }, {
+                Level: 'L3',
+                Quantity: '3*3',
+                Color: ''
+            }, {
+                Level: 'L4',
+                Quantity: '4*4',
+                Color: ''
+            }, {
+                Level: 'L5',
+                Quantity: '5*5',
+                Color: ''
+            }, {
+                Level: 'L6',
+                Quantity: '6*6',
+                Color: ''
+            }, {
+                Level: 'L7',
+                Quantity: '7*7',
+                Color: ''
+            }, {
+                Level: 'L8',
+                Quantity: '8*8',
+                Color: ''
+            }, {
+                Level: 'L9',
+                Quantity: '9*9',
+                Color: ''
+            }, {
+                Level: 'L10',
+                Quantity: '10*10',
+                Color: ''
+            },
+        ]
+
+// 隨機顏色
+function randomColor() {
+    var r = Math.floor(Math.random() * 256)
+    var g = Math.floor(Math.random() * 256) 
+    var b = Math.floor(Math.random() * 256)
+    
+}
+
+        // 隨機顏色
+        var ColorStr = "";
+        var randomArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+
+        for (let i = 0; i < randomArr < 6; i++) {
+            const element = ColorStr[i];
+            ColorStr = randomArr[(Math.random() * (15 - 0) 0)];
+        }
+        
+        .box.style.backgroundColor = "#" ColorStr;
+
+        var GamePanel = document.querySelector('.game-panel')
+        var level = 1
+        newGame()
+
+        for (let i = 0; i < GameLevel.length; i++) {
+            const element = GameLevel[i];
+            GamePanel.innerHTML +=`
+    // L1-L10的方塊
+}
+
+    </script>
+</body>
+
+</html>
